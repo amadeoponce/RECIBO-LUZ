@@ -1,0 +1,76 @@
+<% include partials/_header %>
+<!--
+<pre>
+    <%= ReciboLuz %>
+</pre>
+-->
+<div class="container">
+    <div class="row">
+        <!--FORM-->
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/add" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="ReciboLuz" placeholder="ReciboLuz" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="Nombre" placeholder="Nombre" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="Diereccion" placeholder="N° Diereccion" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="MontoPagar" placeholder="N° MontoPagar" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="Igv" placeholder="N° Igv" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="NumeroRecibo" placeholder="N° NumeroRecibo" class="form-control">
+                        </div>                      
+                        <button type="submit" class="btn btn-primary">
+                            Add
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--List-->
+        <div class="col-md-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                       <th>ReciboLuz</th>
+                       <th>Nombre</th>
+                       <th>N° Diereccion</th>
+                       <th>Igv</th>
+                       <th>MontoPagar</th>
+                       <th>NumeroRecibo</th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(var i = 0; i < ReciboLuz.length; i++) { %>
+                        <tr>
+                            <td><%= i + 1 %></td>
+                            <td><%= ReciboLuz[i].NumeroRecibo %></td>
+                            <td><%= ReciboLuz[i].Nombre %></td>
+                            <td><%= ReciboLuz[i].Diereccion %></td>
+                            <td><%= ReciboLuz[i].MontoPagar%></td>
+                            <td><%= ReciboLuz[i].Igv %></td>
+                            <td><%= ReciboLuz[i].NumeroRecibo %></td>
+                            <td>
+                                <a href="/calificar/<%= ReciboLuz[i]._id %> " class="btn btn-info">MontoPagar</a>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<% include partials/_footer %>
